@@ -1,0 +1,36 @@
+<table border="1">
+    {% for item in data %}
+    <tr> 
+        <td>{{ item.id }}</td>
+        <td>{{ item.event_name }}</td>
+        <td>{{ item.time_zone }}</td>
+        <td>{{ item.start_time }}</td>
+        <td>{{ item.end_time }}</td>
+        <td>{{ item.location_name }}</td>
+        <td>{{ item.city }}</td>
+        <td>{{ item.zip_code }}</td>
+        <td>{{ item.event_contact_name }}</td>
+        <td>{{ item.event_banner}}</td>
+        <td>{{ item.event_access_code }}</td>
+        <td>{{ item.added_by }}</td>
+    </tr>
+     {% endfor %}
+
+
+
+<!--
+    <tr> 
+        <td>{{ data.id }}</td>
+        <td>{{ data.event_name }}</td>
+        <td>{{ data.time_zone }}</td>
+        <td>{{ data.start_time }}</td>
+        <td>{{ data.end_time }}</td>
+        <td>{{ data.location_name }}</td>
+        <td>{{ data.city }}</td>
+        <td>{{ data.zip_code }}</td>
+        <td>{{ data.event_contact_name }}</td>
+        <td>{{ data.event_banner}}</td>
+        <td>{{ data.event_access_code }}</td>
+        <td>{{ data.added_by }}</td>
+    </tr>-->
+</table>
