@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<center><h1 style="align:center;">Which are you: </h1></center>
+
+
+<center><button class="btn" data-dismiss="modal" aria-hidden="true" onclick="location.href='/login'">Admin</button></center>
+<p></p>
+<center><button class="btn" data-dismiss="modal" aria-hidden="true" onclick="location.href='/studentlogin'">Student</button></center>
+
+
+<script type="text/javascript" src="">
+    
+    var admin = document.getElementById("Admin");
+    var student = document.getElementById("Student");
+    
+</script>
+{% endblock content %}

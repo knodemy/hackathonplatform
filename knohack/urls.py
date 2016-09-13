@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^login/$', login),
     url(r'^index/', views.index ),
     url(r'^dynpages/', views.dynpages ),
+    url(r'^studentlogin/', views.studentlogin, name="student_login" ),
     
     url(r'^password/reset/$', 
         auth_views.password_reset, 
@@ -54,7 +55,21 @@ urlpatterns = [
     url(r'^adminSignUp/$', views.adminSignUp, name='adminSignUp'),
     
     
-    url(r'^(?P<event_id>[0-9]+)/$', views.test_Flyer, name='Flyer'),
+    #url(r'^(?P<event_id>[0-9]+)/$', views.test_Flyer, name='Flyer'),
+    
+    
+    
+    # ex: /polls/
+    url(r'^$', views.index, name='index'),
+    # ex: /polls/5/
+    url(r'^(?P<event_id>[0-9]+)/$', views.detail, name='detail'),
+    # ex: /polls/5/results/
+    url(r'^(?P<event_id>[0-9]+)/results/$', views.results, name='results'),
+    # ex: /polls/5/vote/
+    url(r'^(?P<event_id>[0-9]+)/vote/$', views.vote, name='vote'),
+    
+    
+    
     
     
     #url(r'^forgotPassword/', views.forgotPassword),

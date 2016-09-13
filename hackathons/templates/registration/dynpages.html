@@ -1,24 +1,7 @@
 <table border="1">
-    {% for item in data %}
-    <tr> 
-        <td>{{ item.id }}</td>
-        <td>{{ item.event_name }}</td>
-        <td>{{ item.time_zone }}</td>
-        <td>{{ item.start_time }}</td>
-        <td>{{ item.end_time }}</td>
-        <td>{{ item.location_name }}</td>
-        <td>{{ item.city }}</td>
-        <td>{{ item.zip_code }}</td>
-        <td>{{ item.event_contact_name }}</td>
-        <td>{{ item.event_banner}}</td>
-        <td>{{ item.event_access_code }}</td>
-        <td>{{ item.added_by }}</td>
-    </tr>
-     {% endfor %}
 
 
-
-<!--
+    <img id="img" src="/images/IMG_6585.jpg"></img>
     <tr> 
         <td>{{ data.id }}</td>
         <td>{{ data.event_name }}</td>
@@ -32,5 +15,20 @@
         <td>{{ data.event_banner}}</td>
         <td>{{ data.event_access_code }}</td>
         <td>{{ data.added_by }}</td>
-    </tr>-->
+    </tr>
 </table>
+
+<button onclick="loadIMG">ClickMe</button>
+
+<script type="text/javascript">
+
+    function loadIMG(){
+        alert("hello");
+        var imglink = "{{ data.event_banner }}";
+        alert(imglink);
+        return imglink;
+    }
+    document.onload = function(){
+       document.getElementById('img').src=loadIMG();
+    };
+</script>

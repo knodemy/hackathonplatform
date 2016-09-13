@@ -20,9 +20,11 @@ from django.db import models #simone
 from django.template.response import TemplateResponse
 
 
+
 def index(request):
-    return HttpResponse("Hello, world. You're at the hackathons index.")
-    
+    return render_to_response('registration/index.html')
+    #return HttpResponse("Hello, world. You're at the hackathons index.")
+
     
 def dynpages(request):
     data = Event.objects.all()
@@ -67,7 +69,10 @@ def howThisWorks(request):
     return render_to_response('registration/howItWorks.html')     
     
 def registrationComplete(request):
-    return render_to_response('registration/registrationComplete.html')         
+    return render_to_response('registration/registrationComplete.html')  
+    
+def studentlogin(request):
+    return render_to_response('registration/student_login.html')  
    
   
 
@@ -93,17 +98,29 @@ def test_Flyer(request, event_id):
         event = Event.objects.get(pk=event_id)
     except Event.DoesNotExist:
         raise Http404('Event Not Found, Sorry Please Try Again.')
-    
-    
+        
     return render(request, 'polls/details.html', {'question': question})
 
- 
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
 
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
+def detail(request, event_id):
+    data = Event.objects.get(pk=event_id)
+    return TemplateResponse(request, 'registration/dynpages.html', {"data": data})
+    
+
+
+
+'''
+def detail(request, event_id):
+    return HttpResponse("You're looking at question %s." % event_id)
+'''
+def results(request, event_id):
+    response = "You're looking at the results of question %s."
+    return HttpResponse(response % event_id)
+
+def vote(request, event_id):
+    return HttpResponse("You're voting on question %s." % event_id)
+    
+    
     
     
 def reset_confirm(request, uidb36=None, token=None):
