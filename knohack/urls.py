@@ -53,6 +53,7 @@ urlpatterns = [
     url(r'^howThisWorks', views.howThisWorks),
     url(r'^registrationComplete', views.registrationComplete),
     url(r'^adminSignUp/$', views.adminSignUp, name='adminSignUp'),
+    url(r'^studentSignUp/$', views.studentSignUp, name='studentSignUp'),
     
     
     #url(r'^(?P<event_id>[0-9]+)/$', views.test_Flyer, name='Flyer'),

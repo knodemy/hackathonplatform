@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<!--login modal-->
+<div class="center">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+    
+    </div>
+    <div class="col-sm-6">
+    
+    <!--<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">-->
+  <!--<div class="modal-dialog">-->
+  <!--<div class="modal-content">-->
+      <div class="modal-header">
+          <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+          <h1 class="text-center">Student Sign Up</h1>
+          <!-- <h4 class="text-center">Already have an account? <a href="#">Login</a></h4> -->
+      </div>
+      <div class="modal-body">
+              {% if form.errors %}
+              <p>Information wasn't filled out correctly. Please try again.</p>
+              {% endif %}
+              
+              {% if next %}
+                  {% if user.is_authenticated %}
+                  <p>Your account doesn't have access to this page. To proceed,
+                  please login with an account that has access.</p>
+                  {% else %}
+                  <p>Please login to see this page.</p>
+                  {% endif %}
+              {% endif %}
+          <form class="form col-md-12 center-block" onsubmit="return myFunction();" action="{% url 'adminSignUp' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Last Name" id="lastname">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Job Position" id="position">
+            </div>
+            <br/>
+           <div class="modal-header1">
+          
+          <h3 class="text-left">School/Organization Information</h3>
+          
+      </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="School/Organization Name" id="schoolname">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Organization Website" id="orgweb">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Address 1" id="addone">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Address 2" id="addtwo">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="City" id="city">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="State" id="state">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Zip Code" id="zip">
+            </div>
+            <br/>
+         <div class="modal-header2">
+          
+          <h3 class="text-left">Your Account Details</h3>
+          
+      </div>
+        <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Email" id="emailaddress">
+            </div>
+            
+            <div class="form-group">
+              <input type="password" class="form-control input-lg" placeholder="New Password" id="pass">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control input-lg" placeholder="Confirm Password" id="passconf">
+            </div>
+            
+      
+      
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Sign Up</button>
+    
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="location.href='/student_login'">Go Back</button>
+          </div>    
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+
+<script>
+function myFunction(){
+  var fname = document.getElementById("fname");
+  var lname = document.getElementById("lname");
+  var position = document.getElementById("position");
+  var schoolname = document.getElementById("schoolname");
+  var orgweb = document.getElementById("orgweb");
+  var addone = document.getElementById("addone");
+  var addtwo = document.getElementById("addtwo");
+  var city = document.getElementById("city");
+  var state = document.getElementById("state");
+  var zip = document.getElementById("zip");
+  var email = document.getElementById("email");
+  var pass = document.getElementById("pass");
+  var passconf = document.getElementById("passconf");
+  
+  var user = [fname,lname,position,schoolname,orgweb,addone,city,state,zip,email,pass,passconf];
+  var userinfo = ["First Name","Last Name","Job Position","School/Organization Name","Organization Website","Address","City","State","Zip Code","Email Address","Password","Password Confirm"];
+  
+  var trigger = false;
+  
+  var i=0;
+  for(i=0;i<user.length;i++){
+      if(user[i].value == ""){
+        trigger = true;
+      }
+  }
+  
+  if(pass.value != passconf.value){
+    alert("Passwords are not the same.");
+    return false;
+  }
+  
+  if(trigger == true){
+  var j=0;
+  var fielderror = [ ];
+  
+  for(i=0;i<user.length;i++){
+      if(user[i].value == ""){
+        fielderror[j] = userinfo[i];
+        j++;
+      }
+  }
+  
+  var k=0;
+  var output ="You are missing the following fields: ";
+  output = output + fielderror[k];
+  
+  for(k=1;k<fielderror.length;k++){
+    output = output+ ", " + fielderror[k];
+  }
+  output = output + "."
+
+    alert(output);
+    return false;
+  }else{
+  return true;
+  }
+}
+
+
+
+
+
+</script>
+
+
+
+{% endblock content %}

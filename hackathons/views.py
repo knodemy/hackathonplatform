@@ -89,6 +89,21 @@ def adminSignUp(request):
     return render(request, 'registration/adminSignUp.html', {
         'form': form_class,
     })
+    
+    
+def studentSignUp(request):
+    form_class = ContactForm
+    if request.method == "POST":
+        fname= request.POST["first_name"]
+        email= request.POST["email"]
+        password= request.POST["password"]
+        student = Student.objects.create_user(fname, email, password)
+        student.save()
+        return render(request, 'registration/registrationComplete.html', {
+        })
+    return render(request, 'registration/studentSignUp.html', {
+        'form': form_class,
+    })
 
 
 @login_required
