@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^index/', views.index ),
 #    url(r'^flyer/(?P<event_id>[0-9]+)/$', views.dynpages, name='Flyer'),
     url(r'^dynpages/', views.dynpages ),
+
     url(r'^studentlogin/', views.studentlogin, name="student_login" ),
 
     url(r'^password/reset/$',auth_views.password_reset,{'post_reset_redirect' : '/password/reset/done/'},name="password_reset"),
@@ -47,8 +48,6 @@ urlpatterns = [
     #url(r'^Event/', include('knohack.urls')),
     #url(r'^(?P<event_id>[0-9]+)/$', views.test_Flyer, name='Flyer'),
     
-    
-    
     # ex: /polls/
     url(r'^$', views.index, name='index'),
     # ex: /polls/5/
@@ -57,23 +56,4 @@ urlpatterns = [
     url(r'^(?P<event_id>[0-9]+)/results/$', views.results, name='results'),
     # ex: /polls/5/vote/
     url(r'^(?P<event_id>[0-9]+)/vote/$', views.vote, name='vote'),
-    
-    
-    
-    
-
-    #url(r'^login/', 'django.contrib.auth.views.login', name='my_login'),    
-    #django.contrib.auth.views.password_reset, 
-    #'django.contrib.auth.views.password_reset_done'),
-    #'django.contrib.auth.views.password_reset_confirm', 
-    #'django.contrib.auth.views.password_reset_complete'),
-    #url(r'^forgotPassword/', views.forgotPassword),
-    #url(r'^reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$',
-    #       'views.reset_confirm', name='reset_confirm'),
-    #url(r'^reset/', views.reset),
-    #url(r'^password_reset_form', views.reset),
-    #url(r'^adminSignUp/', views.adminSignUp),
-    #url(r'^adminSignUp/', views.adminSignUp),
-    #url('^adminSignUp/', CreateView.as_view(template_name='registration/adminSignUp.html',form_class=UserCreationForm,success_url='/registrationComplete.html')),
-    #url('^accounts/', include('django.contrib.auth.urls')),
 ]

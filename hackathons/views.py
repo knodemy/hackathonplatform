@@ -32,6 +32,12 @@ def dynpages(request):
     #return render_to_response('registration/dynpages.html')
     return TemplateResponse(request, 'registration/dynpages.html', {"data": data})
     
+def flyerpage(request):
+    data = Event.objects.all()
+    #data = Event.objects.get(pk=event_id)
+    #return render_to_response('registration/dynpages.html')
+    return render(request, 'registration/flyerpage.html')
+    
 def alldynpages(request):
     data = Event.objects.all()
     #return render_to_response('registration/dynpages.html')
@@ -55,10 +61,7 @@ def index(request):
 # Create your views here.
 
 def eventpagetest(request):
-        
-        return render(request, 'registration/eventpagetest.html', {
-        
-    })
+    return render(request, 'registration/eventPageTest.html')
 
 def forgotPassword(request):
     return render_to_response('registration/forgotPassword.html')
