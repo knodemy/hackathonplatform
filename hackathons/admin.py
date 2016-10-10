@@ -12,7 +12,7 @@ from django.core.urlresolvers import reverse
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     pass
-    
+
     
 '''
 class EventAdmin(admin.ModelAdmin):
@@ -46,7 +46,30 @@ class EventAdmin(admin.ModelAdmin):
         
         list_display = []
         for x in qs:
-            list_display.append(x)
+            lis
+
+[28/Sep/2016 13:54:28] "GET /hackathons/admin/ HTTP/1.1" 302 0                                                                                                                                                                                       
+[28/Sep/2016 13:54:28] "GET /hackathons/admin/login/?next=/hackathons/admin/ HTTP/1.1" 200 1723                                                                                                                                                      
+[28/Sep/2016 13:54:28] "GET /static/admin/css/login.css HTTP/1.1" 200 1203                                                                                                                                                                           
+[28/Sep/2016 13:54:41] "POST /hackathons/admin/login/?next=/hackathons/admin/ HTTP/1.1" 302 0                                                                                                                                                        
+[28/Sep/2016 13:54:41] "GET /hackathons/admin/ HTTP/1.1" 200 2935                                                                                                                                                                                    
+[28/Sep/2016 13:54:44] "GET /hackathons/admin/hackathons/event/add/ HTTP/1.1" 200 23263                                                                                                                                                              
+[28/Sep/2016 13:54:44] "GET /hackathons/admin/jsi18n/ HTTP/1.1" 200 3217                                                                                                                                                                             
+[28/Sep/2016 13:55:14] "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 200 1094                                                                                                                                                                  
+[28/Sep/2016 13:59:45] "POST /hackathons/admin/hackathons/event/add/ HTTP/1.1" 302 0                                                                                                                                                                 
+[28/Sep/2016 13:59:46] "GET /hackathons/admin/hackathons/event/ HTTP/1.1" 200 4460                                                                                                                                                                   
+[28/Sep/2016 13:59:46] "GET /hackathons/admin/jsi18n/ HTTP/1.1" 200 3217                                                                                                                                                                             
+                                                                                                                                                                                                                                                     
+Run
+
+Django
+Command:
+
+Example: ./server.js --help
+Runner: Django
+CWD
+ENV
+CollaborateOutlineDebuggert_display.append(x)
     
         return list_display
     '''

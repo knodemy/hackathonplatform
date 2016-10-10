@@ -1,8 +1,9 @@
+{% load static %}
 <table border="1">
 
-
-    <img id="img" src="/images/IMG_6585.jpg"></img>
-    <tr> 
+    <img id="img" src={% static "images/computer.svg.png" %}></img>
+     <!--<img id="img" src="workspace/images/computer.svg.png"></img--><br><br>
+   <!-- <tr> 
         <td>{{ data.id }}</td>
         <td>{{ data.event_name }}</td>
         <td>{{ data.time_zone }}</td>
@@ -14,9 +15,126 @@
         <td>{{ data.event_contact_name }}</td>
         <td>{{ data.event_banner}}</td>
         <td>{{ data.event_access_code }}</td>
+        <td>{{ data.event_banner }}</td>
         <td>{{ data.added_by }}</td>
     </tr>
-</table>
+</table>-->
+
+
+<head>
+    <style>
+        body{
+            background-color: #D1F0F8;
+            font-family: 'Arial';
+            padding: 40px;
+        	overflow-x: hidden; /* For Opera */
+        	max-width: 700px;
+            margin: auto;
+            border: 3px solid #73AD21;
+        	/*
+        	-webkit-box-shadow:
+		        inset #000000 0 0 0 5px,
+        		inset #2B2B2B 0 0 0 1px,
+		        inset #404040 0 0 0 10px,
+		        inset #575757 0 0 0 11px,
+		        inset #787878 0 0 0 16px,
+		        inset #9B9D9E 0 0 0 17px,
+		        inset #C0C1C2 0 0 0 22px,
+		        inset #E3E7E8 0 0 0 23px;
+	        -moz-box-shadow:
+		        inset #000000 0 0 0 5px,
+        		inset #2B2B2B 0 0 0 1px,
+		        inset #404040 0 0 0 10px,
+		        inset #575757 0 0 0 11px,
+		        inset #787878 0 0 0 16px,
+		        inset #9B9D9E 0 0 0 17px,
+		        inset #C0C1C2 0 0 0 22px,
+		        inset #E3E7E8 0 0 0 23px;
+	        box-shadow:
+		        inset #000000 0 0 0 5px,
+        		inset #2B2B2B 0 0 0 1px,
+		        inset #404040 0 0 0 10px,
+		        inset #575757 0 0 0 11px,
+		        inset #787878 0 0 0 16px,
+		        inset #9B9D9E 0 0 0 17px,
+		        inset #C0C1C2 0 0 0 22px,
+		        inset #E3E7E8 0 0 0 23px;*/
+            }
+        event_name{
+            color: #12112A;
+            max-width: 300px;
+            height: 100px;
+            font-size: 50px;
+        }
+        event_info{
+
+        }
+        event_description{
+            
+        }
+        faq{
+            
+        }
+        contact_info{
+            
+        }
+        access_code{
+            color: #1E7E56;
+            height: 100px;
+            font-size: 20px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+
+<body>
+    <event_name>{{ data.event_name }}</event_name>
+    <h3>Event Info</h3>
+    <event_info>
+        <blockquote>
+        {{data.start_time|date:"l M d, Y f A"}} to <br>
+        {{data.end_time|date:"l M d, Y f A"}} ({{data.time_zone}})<br>
+        {{data.location_name}}<br>
+        {{data.location_address_1}}
+        {{data.location_address_2}}<br>
+        {{data.city}} {{data.state}} {{data.zip_code}}<br>
+        {{data.country}}<br></blockquote>
+    </event_info>
+    
+    <h3>Event Description</h3>
+    <event_description>
+        <blockquote>
+            Grades {{data.min_grade}} to {{data.max_grade}}
+            {{data.event_details|safe}}
+            {{data.optional_event_details|safe}}
+        </blockquote>
+    </event_description>
+    
+    <h3>FAQ</h3>
+    <faq>
+        <blockquote>
+            {{data.event_FAQ|safe}}
+            {{data.FAQ}}
+        </blockquote>
+    </faq>
+    
+    <h3>Contact Info</h3>
+    <contact_info>
+        <blockquote>
+            {{data.event_contact_name}}<br>
+            {{data.event_contact_phone}}<br>
+            {{data.event_contact_email}}    
+        </blockquote>
+    </contact_info>
+
+    
+    
+    <br><br>
+    <access_code>{{data.event_access_code}}</access_code><br>
+</body>
+
+
 
 <button onclick="loadIMG">ClickMe</button>
 

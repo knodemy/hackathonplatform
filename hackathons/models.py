@@ -47,8 +47,9 @@ class Event(models.Model): #change to "manage events"
     event_access_code = models.CharField(max_length=10, help_text = "clarify: 10 or fewer character access code for your event.", blank = True)
     added_by = models.ForeignKey(User, null=True, blank=True, editable=False)
     
-    def get_absolute_url(self):
-        return 'https://knohack-rmahal.c9users.io/hackathons/admin/hackathons/preview/event/%d' % self.id
+    def get_absolute_url(self): #change to "preview event flyer"
+        #return 'https://knohack-rmahal.c9users.io/hackathons/admin/hackathons/preview/event/%d' % self.id
+        return 'https://knohack-knodemy.c9users.io/hackathons/%d' % self.id
         
     def __unicode__(self):
         return self.event_name
