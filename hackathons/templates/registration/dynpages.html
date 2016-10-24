@@ -3,135 +3,119 @@
 
     <img id="img" src={% static "images/computer.svg.png" %}></img>
      <!--<img id="img" src="workspace/images/computer.svg.png"></img--><br><br>
-   <!-- <tr> 
-        <td>{{ data.id }}</td>
-        <td>{{ data.event_name }}</td>
-        <td>{{ data.time_zone }}</td>
-        <td>{{ data.start_time }}</td>
-        <td>{{ data.end_time }}</td>
-        <td>{{ data.location_name }}</td>
-        <td>{{ data.city }}</td>
-        <td>{{ data.zip_code }}</td>
-        <td>{{ data.event_contact_name }}</td>
-        <td>{{ data.event_banner}}</td>
-        <td>{{ data.event_access_code }}</td>
-        <td>{{ data.event_banner }}</td>
-        <td>{{ data.added_by }}</td>
-    </tr>
-</table>-->
 
 
 <head>
     <style>
         body{
-            background-color: #D1F0F8;
-            font-family: 'Arial';
-            padding: 40px;
+            font-family: 'Century Gothic';
         	overflow-x: hidden; /* For Opera */
-        	max-width: 700px;
+        	margin: auto;
+        	text-align: center;
+        	background-color: #3f4a75;;
+        }
+        .container{
+            background-color:white;
+            width: 80%;
+            padding: 10px;
             margin: auto;
-            border: 3px solid #73AD21;
-        	/*
-        	-webkit-box-shadow:
-		        inset #000000 0 0 0 5px,
-        		inset #2B2B2B 0 0 0 1px,
-		        inset #404040 0 0 0 10px,
-		        inset #575757 0 0 0 11px,
-		        inset #787878 0 0 0 16px,
-		        inset #9B9D9E 0 0 0 17px,
-		        inset #C0C1C2 0 0 0 22px,
-		        inset #E3E7E8 0 0 0 23px;
-	        -moz-box-shadow:
-		        inset #000000 0 0 0 5px,
-        		inset #2B2B2B 0 0 0 1px,
-		        inset #404040 0 0 0 10px,
-		        inset #575757 0 0 0 11px,
-		        inset #787878 0 0 0 16px,
-		        inset #9B9D9E 0 0 0 17px,
-		        inset #C0C1C2 0 0 0 22px,
-		        inset #E3E7E8 0 0 0 23px;
-	        box-shadow:
-		        inset #000000 0 0 0 5px,
-        		inset #2B2B2B 0 0 0 1px,
-		        inset #404040 0 0 0 10px,
-		        inset #575757 0 0 0 11px,
-		        inset #787878 0 0 0 16px,
-		        inset #9B9D9E 0 0 0 17px,
-		        inset #C0C1C2 0 0 0 22px,
-		        inset #E3E7E8 0 0 0 23px;*/
-            }
+            color: #222C52;
+            max-width: 700px;
+            border: 3px solid #222C52;
+        }
+        h3{
+            font-family: 'Century Gothic';
+        }
         event_name{
-            color: #12112A;
+            text-align: center;
+            font-family: 'Century Gothic';
+            color: #3f4a75;
             max-width: 300px;
             height: 100px;
-            font-size: 50px;
+            font-size: 60px;
+            font-weight: bold;
+            background-color: white;
         }
-        event_info{
-
+        .event_info{
+            padding-top: 1px;
+            padding-bottom: 8px;
+            padding-left: 1px;
+            background-color: #E1E3E8;
+            text-align: left;
         }
-        event_description{
-            
+        .event_description{
+            text-align: left; 
         }
-        faq{
-            
+        .faq{
+            text-align: left;
         }
-        contact_info{
-            
+        .contact_info{
+            text-align: left;
+            background-color: #E1E3E8;
         }
-        access_code{
+        .access_code{
             color: #1E7E56;
-            height: 100px;
             font-size: 20px;
             border: 1px solid blue;
+            text-align: center;
+            width: auto;
         }
     </style>
 </head>
 
 
 <body>
-    <event_name>{{ data.event_name }}</event_name>
-    <h3>Event Info</h3>
-    <event_info>
+<div class="container">
+    <event_name>{{ data.event_name }}</event_name><br>
+    <div class ="access_code">{{data.event_access_code}}</div><br>
+
+    <div class ="event_info">
+        <h3>Event Info</h3>
         <blockquote>
-        {{data.start_time|date:"l M d, Y f A"}} to <br>
-        {{data.end_time|date:"l M d, Y f A"}} ({{data.time_zone}})<br>
+        Start: {{data.start_time|date:"l M d, Y f A"}} ({{data.time_zone}})<br>
+        End: {{data.end_time|date:"l M d, Y f A"}} ({{data.time_zone}})<br>
         {{data.location_name}}<br>
         {{data.location_address_1}}
         {{data.location_address_2}}<br>
         {{data.city}} {{data.state}} {{data.zip_code}}<br>
         {{data.country}}<br></blockquote>
-    </event_info>
+    </div>
     
-    <h3>Event Description</h3>
-    <event_description>
+
+    <div class = "event_description">
+        <h3>Event Description</h3>
         <blockquote>
-            Grades {{data.min_grade}} to {{data.max_grade}}
             {{data.event_details|safe}}
             {{data.optional_event_details|safe}}
+            Grades {{data.min_grade}} to {{data.max_grade}}
         </blockquote>
-    </event_description>
+    </div>
     
-    <h3>FAQ</h3>
-    <faq>
+
+    <div class ="faq">
+        <h3>FAQ</h3>
         <blockquote>
             {{data.event_FAQ|safe}}
             {{data.FAQ}}
         </blockquote>
-    </faq>
+    </div>
     
-    <h3>Contact Info</h3>
-    <contact_info>
+    <div class ="contact_info">
+        <br>
+        <h3>Contact Info</h3>
         <blockquote>
             {{data.event_contact_name}}<br>
             {{data.event_contact_phone}}<br>
             {{data.event_contact_email}}    
         </blockquote>
-    </contact_info>
+        <br>
+    </div>
 
     
     
     <br><br>
-    <access_code>{{data.event_access_code}}</access_code><br>
+    
+</div>
 </body>
 
 
